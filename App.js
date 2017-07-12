@@ -19,7 +19,7 @@ export class App extends React.Component{
     let newThis = this;
     function starting(){
         if(newThis.state.seconds===59 && newThis.state.milliseconds===9){
-          newThis.setState({seconds:0,minutes:newThis.state.minutes+1})
+          newThis.setState({seconds:0,minutes:newThis.state.minutes+1,milliseconds:0});
         }else if(newThis.state.milliseconds<9){
           newThis.setState({milliseconds:(newThis.state.milliseconds+1),started:true});
         }else{
@@ -49,7 +49,7 @@ export class App extends React.Component{
       if(!this.state.started && this.state.milliseconds !== 0){
         return(
           <View style={styles.container}>
-            <Text style={styles.timerTitle}>{`${this.state.minutes<9&&'0'+this.state.minutes.toString()}:${this.state.seconds<9&&'0'+this.state.seconds.toString()}.${this.state.milliseconds.toString()+'00'}`}</Text>
+            <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
             <TouchableHighlight
               style={[styles.button,styles.startButton]}
               onPress={this.startTime.bind(this)}
@@ -66,7 +66,7 @@ export class App extends React.Component{
         )
       }else if(!this.state.started){
         return(<View style={styles.container}>
-          <Text style={styles.timerTitle}>{`${this.state.minutes<9&&'0'+this.state.minutes.toString()}:${this.state.seconds<9&&'0'+this.state.seconds.toString()}.${this.state.milliseconds.toString()+'00'}`}</Text>
+          <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
           <TouchableHighlight
             style={[styles.button,styles.startButton]}
             onPress={this.startTime.bind(this)}
@@ -78,7 +78,7 @@ export class App extends React.Component{
       }else{
         return(
           <View style={styles.container}>
-            <Text style={styles.timerTitle}>{`${this.state.minutes<9&&'0'+this.state.minutes.toString()}:${this.state.seconds<9&&'0'+this.state.seconds.toString()}.${this.state.milliseconds.toString()+'00'}`}</Text>
+            <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
             <TouchableHighlight
               style={[styles.button,styles.stopButton]}
               onPress={this.stopTime.bind(this)}
