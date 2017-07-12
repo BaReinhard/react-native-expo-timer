@@ -50,41 +50,47 @@ export class App extends React.Component{
         return(
           <View style={styles.container}>
             <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
-            <TouchableHighlight
-              style={[styles.button,styles.startButton]}
-              onPress={this.startTime.bind(this)}
-            >
-              <Text style={[styles.buttonText,styles.startText]}>Resume</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={[styles.button,styles.clearButton]}
-              onPress={this.clearTime.bind(this)}
-            >
-              <Text style={[styles.buttonText,styles.clearText]}>Clear</Text>
-            </TouchableHighlight>
+            <View style{styles.ButtonContainer}>
+              <TouchableHighlight
+                style={[styles.button,styles.startButton]}
+                onPress={this.startTime.bind(this)}
+              >
+                <Text style={[styles.buttonText,styles.startText]}>Resume</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={[styles.button,styles.clearButton]}
+                onPress={this.clearTime.bind(this)}
+              >
+                <Text style={[styles.buttonText,styles.clearText]}>Clear</Text>
+              </TouchableHighlight>
+            </View>
           </View>
         )
       }else if(!this.state.started){
         return(<View style={styles.container}>
           <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
-          <TouchableHighlight
-            style={[styles.button,styles.startButton]}
-            onPress={this.startTime.bind(this)}
-          >
-            <Text style={[styles.buttonText,styles.startText]}>Start</Text>
-          </TouchableHighlight>
+          <View style={styles.buttonContainer}>
+            <TouchableHighlight
+              style={[styles.button,styles.startButton]}
+              onPress={this.startTime.bind(this)}
+            >
+              <Text style={[styles.buttonText,styles.startText]}>Start</Text>
+            </TouchableHighlight>
+          </View>
         </View>
       )
       }else{
         return(
           <View style={styles.container}>
             <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
-            <TouchableHighlight
-              style={[styles.button,styles.stopButton]}
-              onPress={this.stopTime.bind(this)}
-            >
-              <Text style={[styles.buttonText,styles.stopText]}>Stop</Text>
-            </TouchableHighlight>
+            <View style={styles.buttonContainer}>
+              <TouchableHighlight
+                style={[styles.button,styles.stopButton]}
+                onPress={this.stopTime.bind(this)}
+              >
+                <Text style={[styles.buttonText,styles.stopText]}>Stop</Text>
+              </TouchableHighlight>
+            </View>
 
           </View>
         )
@@ -98,6 +104,10 @@ export class App extends React.Component{
       backgroundColor: '#fff',
       justifyContent:'center',
       alignItems: 'center',
+    },
+    buttonContainer:{
+      flex:1,
+      flexDirection: 'row'
     },
     timerTitle:{
       fontSize:30,
