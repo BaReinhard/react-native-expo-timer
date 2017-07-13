@@ -1,3 +1,4 @@
+
 import React from 'React';
 import {StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
@@ -5,12 +6,13 @@ import PropTypes from 'prop-types';
 let startInterval;
 export class App extends React.Component{
   constructor(props,context){
-    super(props,context)
+    super(props,context);
     this.state = {
       minutes:0,
       seconds:0,
       milliseconds: 0,
-      started:false
+      started:false,
+
     };
     this.startTime = this.startTime.bind(this);
     this.stopTime = this.stopTime.bind(this);
@@ -50,7 +52,7 @@ export class App extends React.Component{
         return(
           <View style={styles.container}>
             <Text style={styles.timerTitle}>{`${this.state.minutes<=9?'0'+this.state.minutes.toString():this.state.minutes}:${this.state.seconds<=9?'0'+this.state.seconds.toString():this.state.seconds}.${this.state.milliseconds.toString()+'00'}`}</Text>
-            <View style{styles.ButtonContainer}>
+            <View style={styles.buttonContainer}>
               <TouchableHighlight
                 style={[styles.button,styles.startButton]}
                 onPress={this.startTime.bind(this)}
@@ -106,7 +108,7 @@ export class App extends React.Component{
       alignItems: 'center',
     },
     buttonContainer:{
-      flex:1,
+
       flexDirection: 'row'
     },
     timerTitle:{
@@ -127,7 +129,7 @@ export class App extends React.Component{
     startButton:{
     },
     clearButton:{
-
+      marginLeft:10
     },
     buttonText:{
       fontSize:20,
