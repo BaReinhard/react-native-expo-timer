@@ -10,9 +10,9 @@
     "eslint-plugin-react": "^7.1.0",
     "expo": "^18.0.4",
     "install": "^0.10.1",
-    "npm": "^5.2.0",
+    "npm": "^6.10.1",
     "prop-types": "^15.5.10",
-    "react": "16.0.0-alpha.12",
+    "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-18.0.1.tar.gz",
     "snyk": "^1.88.0"
   },
